@@ -3,14 +3,14 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
-    buildToolsVersion rootProject.ext.buildToolsVersion as String
+    compileSdkVersion 22
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion as Integer
-        targetSdkVersion rootProject.ext.targetSdkVersion as Integer
-        versionCode rootProject.ext.versionCode as Integer
-        versionName rootProject.ext.versionName as String
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 28
+        versionName "0.3.2"
     }
 
     sourceSets.main {
@@ -31,64 +31,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     androidTestCompile 'com.squareup.assertj:assertj-android:1.0.0'
-}
-
-group = GROUP
-
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging POM_PACKAGING
-
-                // Add your description here
-                name 'FFmpeg Android'
-                description = POM_DESCRIPTION
-                url POM_URL
-
-                // Set your license
-                licenses {
-                    license {
-                        name POM_LICENCE_NAME
-                        url POM_LICENCE_URL
-                    }
-                }
-                developers {
-                    developer {
-                        id POM_DEVELOPER_ID
-                        name POM_DEVELOPER_NAME
-                        email 'hitesh@writingminds.com'
-                    }
-                }
-                scm {
-                    connection POM_SCM_URL
-                    developerConnection POM_SCM_URL
-                    url POM_URL
-
-                }
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
 }
 
 Properties properties = new Properties()

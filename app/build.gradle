@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
-    buildToolsVersion rootProject.ext.buildToolsVersion as String
+    compileSdkVersion 22
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
-        applicationId "com.github.hiteshsondhi88.sampleffmpeg"
-        minSdkVersion rootProject.ext.minSdkVersion as Integer
-        targetSdkVersion rootProject.ext.targetSdkVersion as Integer
-        versionCode rootProject.ext.versionCode as Integer
-        versionName rootProject.ext.versionName as String
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 28
+        versionName "0.3.2"
     }
 
     sourceSets.main {
