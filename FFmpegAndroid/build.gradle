@@ -33,6 +33,3 @@ dependencies {
     androidTestCompile 'com.squareup.assertj:assertj-android:1.0.0'
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
